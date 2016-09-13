@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>小黄人</title>
+		<style>
+		body{
+			background: palevioletred;
+		}
+		/*眼睛左右转动*/
+		@keyframes eyes{
+			0%{
+				transform: translateX(0);
+			}
+			50%{
+				transform: translateX(13px);
+			}
+			100%{
+				transform: translateX(0);
+			}
+		}
+		/* 嘴巴上下移动*/
+		@keyframes mouth{
+			0%{
+				transform: translateY(0);
+			}
+			50%{
+				transform: translateY(2px);
+			}
+			100%{
+				transform: translateY(0);
+			}
+		}
+			.minion-1{
+				position:absolute;
+				top:40%;
+				left:16%;
+			}
+			.minion-2{
+				position:absolute;
+				top:35%;
+				left:34%;
+			}
+			.minion-2 .body{
+				width:130px;
+				height:330px;
+			}
+			.minion-2 .trousers{
+				width:130px;
+			}
+			.minion-2 .cloth{
+				bottom:40px;
+			}
+			.minion-2 .legs{
+				bottom:-8%;
+			}
+			.minion-3{
+				position:absolute;
+				top:40%;
+				left:51%;
+			}
+			.minion-3 .body{
+				width:180px;
+			}
+			.minion-3 .trousers{
+				width:180px;
+			}
+			.minion-3 .left-arm{
+				left:-10%;
+			}
+			.minion-3 .right-arm{
+				right:-10%;
+			}
+			.minion-4{
+				position:absolute;
+				top:37%;
+				left:73%;
+				transform: scale(1.1,1.1);
+			}
+
+			.one-glasses{
+				width:65px;
+				height:65px;
+				z-index: 2;								
+				-webkit-border-radius:50% ;
+				-moz-border-radius:50% ;
+				border-radius: 50% ;
+				background:#dededd;
+				border: 1px solid #1f1a17;
+				position:absolute;
+				top:16%;
+				left:25%;
+			}
+			.minion-3 .one-glasses{
+				left:33%;
+			}
+			.minion-3 .mouth{
+				left:35%;
+			}
+			.one-glasses .eye{
+				margin:8px auto;
+			}
+			.hair{
+              
+			}
+			.hair1{
+				width:1px;
+				height:40px;
+				background: #000;
+				-webkit-transform: rotate(-20deg);
+				-moz-transform: rotate(-20deg);
+				transform: rotate(-20deg);
+				position:absolute;
+				left:43%;
+				top:-8%;
+	            z-index:2;
+			}
+			.hair2{
+				width:1px;
+				height:40px;
+				background: #000;
+				position:absolute;
+				left:50%;
+				top:-8%;
+				z-index:2;
+			}
+			.hair3{
+				width:1px;
+				height:40px;
+				background: #000;
+				-webkit-transform: rotate(20deg);
+				-moz-transform: rotate(20deg);
+				transform: rotate(20deg);
+				position:absolute;
+				left:57%;
+				top:-8%;
+				z-index:2;
+			}
+			/*若div里面的内容设置了绝对定位，overflow:hidden将会失效，此时必须对div设置一个相对定位*/
+			.body{
+				width:150px;
+				height:300px;
+				background: yellow;
+				-webkit-border-radius:120px ;
+				-moz-border-radius:120px ;
+				border-radius: 120px;
+				overflow: hidden;
+				z-index:1;
+				position:relative;
+			}
+			.bow{
+				width:100%;
+				height:20px;
+				background: #000;
+				position:absolute;
+				top:25%;
+			    z-index: 2;	
+			}
+			.glasses{
+				width:55px;
+				height:55px;
+				z-index: 2;				
+								
+				-webkit-border-radius:50% ;
+				-moz-border-radius:50% ;
+				border-radius: 50% ;
+				background:#dededd;
+				border: 1px solid #1f1a17;
+				position:absolute;
+				top:18%;
+			}
+			.left-glasses{
+				left:10%;
+			}
+			.right-glasses{
+				right:10%;
+			}
+			.eye{
+				width:45px;
+				height:45px;
+				position:relative;
+				/*居中*/
+	            margin:4px auto;
+				-webkit-border-radius:50% ;
+				-moz-border-radius:50% ;
+				border-radius: 50% ;
+				background:#fff;
+				border: 1px solid #1f1a17;
+			}
+			.ball{
+				width:18px;
+				height:18px;
+				position:relative;
+				/*居中*/
+	            margin:12px auto;
+				-webkit-border-radius:50% ;
+				-moz-border-radius:50% ;
+				border-radius: 50% ;
+				background:#8f5444;
+				border: 1px solid #1f1a17;
+				animation: eyes 1s linear infinite;
+			}
+			.ball strong{
+				/*内联元素无法设置宽高*/
+				display: block;
+				width:10px;
+				height:10px;
+				position:relative;
+				/*居中*/
+	            margin:4px auto;
+				-webkit-border-radius:50% ;
+				-moz-border-radius:50% ;
+				border-radius: 50% ;
+				background:#000;
+			}
+			.mouth{
+				overflow: hidden;
+				position:absolute;
+				top:40%;
+				left:31%;
+				width:55px;
+				height:30px;
+				-webkit-border-radius:100px 100px 40px 40px ;
+				-moz-border-radius:100px 100px 40px 40px ;
+				border-radius:100px 100px 40px 40px ;
+				background: #fff;
+				border:1px solid #000;
+				animation: mouth 1s linear infinite;
+			}
+			.line{
+				position:absolute;
+				top:50%;
+				width:100%;
+				height:1px;
+				background: #000;
+			}
+			.tooth{
+				height:100%;
+				width:1px;
+				background: #000;
+				position:absolute;
+			}
+			.tooth1{
+				left:20%;
+			}
+			.tooth2{
+				left:50%;
+			}
+			.tooth3{
+				left:80%;
+			}
+			.cloth{
+				z-index:1;
+				width:80%;
+				height:100px;
+				-webkit-border-radius:10px ;
+				-moz-border-radius:10px;
+				border-radius: 10px ;
+				background:#667AB3;
+				position:absolute;
+				bottom:20px;
+				left:10%;
+			}
+			.sling{
+				width:15px;
+				height:60px;
+				background:#667AB3;
+				position:absolute;
+				top:45%;	
+				z-index:2;		
+			}
+			.left-sling{
+				
+				-webkit-transform: rotate(-35deg);
+				-moz-transform: rotate(-35deg);
+				transform: rotate(-35deg);	
+			}
+			.right-sling{
+				right:0;
+				-webkit-transform: rotate(35deg);
+				-moz-transform: rotate(35deg);
+				transform: rotate(35deg);	
+			}
+			.fastener{
+				
+				width:10px;
+				height:10px;
+				-webkit-border-radius:50% ;
+				-moz-border-radius:50% ;
+				border-radius: 50% ;
+				background:#000;
+				position: absolute;
+				bottom:5%;
+				left:20%;
+			}
+			.arms{
+				width:20px;
+				height:98px;
+				background: yellow;
+				position:absolute;	
+			}
+			.left-arm{
+				top:48%;
+				left:-13%;
+				-webkit-transform: rotate(-160deg);
+				-moz-transform: rotate(-160deg);
+				transform: rotate(-160deg);
+			}
+			.right-arm{
+				top:48%;
+				right:-12%;
+				-webkit-transform: rotate(160deg);
+				-moz-transform: rotate(160deg);
+				transform: rotate(160deg);
+			}
+			.hand{
+				width:20px;
+				height:20px;
+				background: #000;
+				-webkit-border-radius:50% ;
+				-moz-border-radius:50% ;
+				border-radius: 50% ;
+				position:absolute;
+				bottom:88%;
+			}
+			.pocket{
+				z-index:3;
+				width:45px;
+				height:45px;
+				-webkit-border-radius:10px 10px 40px 40px ;
+				-moz-border-radius:10px 10px 40px 40px ;
+				border-radius:10px 10px 40px 40px ;
+				border:1px solid #000;
+				position:absolute;
+				top:70%;
+				left:33%;
+			}
+			.pocket > div{
+				width:20px;
+				height:20px;
+				background: #000;
+				-webkit-border-radius:50% ;
+				-moz-border-radius:50% ;
+				border-radius: 50% ;
+				margin:10px auto;
+			}
+			.pocket > div > div{
+				width:10px;
+				height:10px;
+				background: #000;
+				border:2px solid #667AB3;
+				-webkit-transform: rotate(135deg);
+				-moz-transform: rotate(135deg);
+				transform: rotate(135deg);
+				position:absolute;
+				top:29%;
+				left:35%;
+			}
+			.trousers{
+				width:150px;
+				height:100px;
+				background: #667AB3;
+				z-index: 2;
+				position:absolute;
+				top:70%;
+				-webkit-border-radius:0 0 80px 80px ;
+				-moz-border-radius:0 0 40px 40px ;
+				border-radius:0 0 50px 50px ;
+			}
+			.legs{
+				width:30px;
+				height:35px;
+				background: #667AB3;
+				position:absolute;
+				bottom:-10%;
+				
+			}
+			.left-leg{
+				left:20%;
+			}
+			.right-leg{
+				right:20%;
+			}
+			.left-leg .foot{
+				width:40px;
+				height:20px;
+				background: #000;
+				-webkit-border-radius:40px 0 0 10px ;
+				-moz-border-radius:40px 0 0 10px ;
+				border-radius:40px 0 0 10px ;
+				position:absolute;
+				bottom:-50%;
+				left:-35%;
+			}
+			.right-leg .foot{
+				width:40px;
+				height:20px;
+				background: #000;
+				-webkit-border-radius:0 40px 10px 0 ;
+				-moz-border-radius:0 40px 10px 0  ;
+				border-radius:0 40px 10px 0 ;
+				position:absolute;
+				bottom:-50%;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="minion-1">
+			<!--头发-->
+			<div class="hair">
+				<div class="hair1"></div>
+				<div class="hair2"></div>	
+				<div class="hair3"></div>	
+			</div>
+			<!--身体-->
+			<div class="body">
+				<!--眼镜框-->
+				<div class="bow"></div>
+				<!--左眼-->
+				<div class="glasses left-glasses">
+					<div class="eye">
+						<div class="ball">
+							<strong></strong>
+						</div>
+					</div>
+				</div>
+				<!--右眼-->
+				<div class="glasses right-glasses">
+					<div class="eye">
+						<div class="ball">
+							<strong></strong>
+						</div>
+					</div>
+				</div>
+				<!--嘴巴-->
+				<div class="mouth">
+					<div class="line"></div>
+					<div class="tooth tooth1"></div>
+					<div class="tooth tooth2"></div>
+					<div class="tooth tooth3"></div>
+				</div>
+				<!--衣服-->
+				<div class="cloth"></div>
+				<!--背带-->
+				<div class="sling left-sling">
+					<div class="fastener"></div>
+				</div>
+				<div class="sling right-sling">
+					<div class="fastener"></div>
+				</div>
+			</div>
+			<!--
+            	作者：523657184@qq.com
+            	时间：2016-07-25
+            	描述：手臂
+            -->
+			<div class="arms left-arm">
+				<div class="hand"></div>
+			</div>
+			<div class="arms right-arm">
+				<div class="hand"></div>
+			</div>
+			<!--口袋-->
+			<div class="pocket">
+				<div>
+					<div></div>
+				</div>
+			</div>
+			<!--裤子-->
+			<div class="trousers"></div>
+			<!--
+            	作者：523657184@qq.com
+            	时间：2016-07-25
+            	描述：腿
+            -->
+			<div class="legs left-leg">
+				<div class="foot"></div>
+			</div>
+			<div class="legs right-leg">
+				<div class="foot"></div>
+			</div>
+		</div>
+		
+		<div class="minion-4">
+			<!--头发-->
+			<div class="hair">
+				<div class="hair1"></div>
+				<div class="hair2"></div>	
+				<div class="hair3"></div>	
+			</div>
+			<!--身体-->
+			<div class="body">
+				
+				<!--嘴巴-->
+				<div class="mouth">
+					<div class="line"></div>
+					<div class="tooth tooth1"></div>
+					<div class="tooth tooth2"></div>
+					<div class="tooth tooth3"></div>
+				</div>
+				<!--衣服-->
+				<div class="cloth"></div>
+				<!--背带-->
+				<div class="sling left-sling">
+					<div class="fastener"></div>
+				</div>
+				<div class="sling right-sling">
+					<div class="fastener"></div>
+				</div>
+			</div>
+			<!--
+            	作者：523657184@qq.com
+            	时间：2016-07-25
+            	描述：手臂
+            -->
+			<div class="arms left-arm">
+				<div class="hand"></div>
+			</div>
+			<div class="arms right-arm">
+				<div class="hand"></div>
+			</div>
+			<!--口袋-->
+			<div class="pocket">
+				<div>
+					<div></div>
+				</div>
+			</div>
+			<!--眼镜框-->
+				<div class="bow"></div>
+				<!--左眼-->
+				<div class="glasses left-glasses">
+					<div class="eye">
+						<div class="ball">
+							<strong></strong>
+						</div>
+					</div>
+				</div>
+				<!--右眼-->
+				<div class="glasses right-glasses">
+					<div class="eye">
+						<div class="ball">
+							<strong></strong>
+						</div>
+					</div>
+				</div>
+			<!--裤子-->
+			<div class="trousers"></div>
+			<!--
+            	作者：523657184@qq.com
+            	时间：2016-07-25
+            	描述：腿
+            -->
+			<div class="legs left-leg">
+				<div class="foot"></div>
+			</div>
+			<div class="legs right-leg">
+				<div class="foot"></div>
+			</div>
+		</div>
+		
+		<div class="minion-2">
+			<!--头发-->
+			<div class="hair">
+				<div class="hair1"></div>
+				<div class="hair2"></div>	
+				<div class="hair3"></div>	
+			</div>
+			<!--身体-->
+			<div class="body">
+				
+				<!--嘴巴-->
+				<div class="mouth">
+					<div class="line"></div>
+					<div class="tooth tooth1"></div>
+					<div class="tooth tooth2"></div>
+					<div class="tooth tooth3"></div>
+				</div>
+				<!--衣服-->
+				<div class="cloth"></div>
+				<!--背带-->
+				<div class="sling left-sling">
+					<div class="fastener"></div>
+				</div>
+				<div class="sling right-sling">
+					<div class="fastener"></div>
+				</div>
+			</div>
+			<!--
+            	作者：523657184@qq.com
+            	时间：2016-07-25
+            	描述：手臂
+            -->
+			<div class="arms left-arm">
+				<div class="hand"></div>
+			</div>
+			<div class="arms right-arm">
+				<div class="hand"></div>
+			</div>
+			<!--口袋-->
+			<div class="pocket">
+				<div>
+					<div></div>
+				</div>
+			</div>
+			<!--眼镜框-->
+				<div class="bow"></div>
+				<!--眼-->
+				<div class="one-glasses">
+					<div class="eye">
+						<div class="ball">
+							<strong></strong>
+						</div>
+					</div>
+				</div>
+				
+			<!--裤子-->
+			<div class="trousers"></div>
+			<!--
+            	作者：523657184@qq.com
+            	时间：2016-07-25
+            	描述：腿
+            -->
+			<div class="legs left-leg">
+				<div class="foot"></div>
+			</div>
+			<div class="legs right-leg">
+				<div class="foot"></div>
+			</div>
+		</div>
+		
+		<div class="minion-3">
+		<!--头发-->
+		<div class="hair">
+			<div class="hair1"></div>
+			<div class="hair2"></div>	
+			<div class="hair3"></div>	
+		</div>
+		<!--身体-->
+		<div class="body">
+			
+			<!--嘴巴-->
+			<div class="mouth">
+				<div class="line"></div>
+				<div class="tooth tooth1"></div>
+				<div class="tooth tooth2"></div>
+				<div class="tooth tooth3"></div>
+			</div>
+			<!--衣服-->
+			<div class="cloth"></div>
+			<!--背带-->
+			<div class="sling left-sling">
+				<div class="fastener"></div>
+			</div>
+			<div class="sling right-sling">
+				<div class="fastener"></div>
+			</div>
+		</div>
+		<!--
+        	作者：523657184@qq.com
+        	时间：2016-07-25
+        	描述：手臂
+        -->
+		<div class="arms left-arm">
+			<div class="hand"></div>
+		</div>
+		<div class="arms right-arm">
+			<div class="hand"></div>
+		</div>
+		<!--口袋-->
+		<div class="pocket">
+			<div>
+				<div></div>
+			</div>
+		</div>
+		<!--眼镜框-->
+			<div class="bow"></div>
+			<!--眼-->
+			<div class="one-glasses">
+				<div class="eye">
+					<div class="ball">
+						<strong></strong>
+					</div>
+				</div>
+			</div>
+			
+		<!--裤子-->
+		<div class="trousers"></div>
+		<!--
+        	作者：523657184@qq.com
+        	时间：2016-07-25
+        	描述：腿
+        -->
+		<div class="legs left-leg">
+			<div class="foot"></div>
+		</div>
+		<div class="legs right-leg">
+			<div class="foot"></div>
+		</div>
+	</div>
+	</body>
+</html>
